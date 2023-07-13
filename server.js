@@ -1,6 +1,8 @@
 const express = require('express')
+const bodyparser = require('body-parser')
+const mongoose =require('mongoose')
 const app = express()
-app.all('/display', (req, res) => {
+app.use('/display', (req, res) => {
     console.log("Just got a request!")
     res.send('Yo!')
 })
