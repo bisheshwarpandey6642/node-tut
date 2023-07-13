@@ -1,33 +1,7 @@
-const express = require("express")
-const bodyparser = require("body-parser")
-const mongoose =require('mongoose')
+const express = require('express')
 const app = express()
-const port = process.env.PORT || 5000
-
-
-
-// require the router 
-
-const postRoutes = require("./router/routes")
-
-app.use(bodyparser.json());
-app.use('/api', postRoutes);
-
-app.get('/', (req, res) => {
-    res.json({
-        message:"running"
-    })
+app.all('/display', (req, res) => {
+    console.log("Just got a request!")
+    res.send('Yo!')
 })
-
-
-//mongo --- command -----> aggregate function ------  -> mongoose[node modules]===> mongo setup
-mongoose.connect("mongodb+srv://user:user@cluster0.0embh.mongodb.net/?retryWrites=true&w=majority")
-.then(() => {
-    console.log("Database is connected and live...")
-})
-
-
-// server creating and running
-app.listen(port, () => {
-    console.log(`server is up and running on port ${port}`)
-})
+app.listen(process.env.PORT || 3000)
