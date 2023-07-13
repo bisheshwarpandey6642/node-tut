@@ -17,5 +17,9 @@ app.get('/', (req, res) => {
         message:"running"
     })
 })
+mongoose.connect("mongodb+srv://user:user@restapi.fptkcqu.mongodb.net/?retryWrites=true&w=majority")
+.then(() => {
+    console.log("Database is connected and live...")
+})
 
 app.listen(process.env.PORT || 3000)
