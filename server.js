@@ -3,7 +3,7 @@ const bodyparser = require('body-parser')
 const postRoutes = require("./router/routes")
 const mongoose =require('mongoose')
 const app = express()
-app.use('/display', (req, res) => {
+app.use('/test', (req, res) => {
     console.log("Just got a request!")
     res.send('Yo!')
 })
